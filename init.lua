@@ -37,9 +37,7 @@ local proxied = {};
 local methods = {
     HttpGet = not syn,
     HttpGetAsync = not syn,
-    GetObjects = true,
-    HttpPost = not syn,
-    HttpPostAsync = not syn
+    GetObjects = true
 }
 
 Serializer.UpdateConfig({ highlighting = options.Highlighting });
@@ -160,12 +158,6 @@ if syn and syn.websocket then
     HttpGet = hookfunction(getupvalue(ConstantScan("ZeZLm2hpvGJrD6OP8A3aEszPNEw8OxGb"), 2), function(self, ...) 
         printf("game.HttpGet(game, %s)\n\n", Serializer.FormatArguments(...));
         return HttpGet(self, ...);
-    end);
-
-    local HttpPost;
-    HttpPost = hookfunction(getupvalue(ConstantScan("gpGXBVpEoOOktZWoYECgAY31o0BlhOue"), 2), function(self, ...) 
-        printf("game.HttpPost(game, %s)\n\n", Serializer.FormatArguments(...));
-        return HttpPost(self, ...);
     end);
 end
 
